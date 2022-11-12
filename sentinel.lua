@@ -1,4 +1,4 @@
--- decompiled by Sentinel (took 123.198958ms)
+-- decompiled by Sentinel (took 113.512875ms)
 function CreateGui()
 	local v1 = Instance.new("ScreenGui")
 	local v2 = Instance.new("Frame")
@@ -1591,8 +1591,7 @@ spawn(function()
 	local v_u_192 =
 		{ ["Explorer"] = { v175, v176 }, ["Settings"] = { v179 }, ["SaveMap"] = { v177 }, ["Remotes"] = { v178 } }
 	function switchWindows(p193, p194)
-		if v_u_191 == p193 and not p194 then
-		else
+		if v_u_191 ~= p193 or p194 then
 			for v195, v196 in pairs(v_u_192) do
 				local v197 = 0
 				if v195 ~= p193 then
@@ -2674,8 +2673,7 @@ spawn(function()
 			else
 				v_u_388.ScrollIndex = 0
 			end
-			if v_u_388.UpdateCallback and v_u_388.UpdateCallback(v_u_388) == false then
-			else
+			if not v_u_388.UpdateCallback or v_u_388.UpdateCallback(v_u_388) ~= false then
 				local v399 = v_u_388:CanScrollDown()
 				local v400 = v_u_388:CanScrollUp()
 				if v399 ~= v_u_392 then
@@ -3504,8 +3502,7 @@ spawn(function()
 	end
 	local v_u_598 = false
 	local function v_u_599()
-		if v_u_598 then
-		else
+		if not v_u_598 then
 			v_u_598 = true
 			wait(0.25)
 			v_u_598 = false
@@ -3514,8 +3511,7 @@ spawn(function()
 	end
 	local v_u_600 = false
 	local function v_u_601()
-		if v_u_600 then
-		else
+		if not v_u_600 then
 			v_u_600 = true
 			wait(0.25)
 			v_u_600 = false
@@ -4212,8 +4208,7 @@ spawn(function()
 		conDrag = v_u_739.MouseMoved:connect(function(p744, p745)
 			local v746 = Vector2.new(p744, p745) - v_u_459.AbsolutePosition
 			local v747 = v_u_459.AbsoluteSize
-			if v746.x < 0 or v746.x > v747.x or v746.y < 0 or v746.y > v747.y then
-			else
+			if v746.x >= 0 and v746.x <= v747.x and v746.y >= 0 and v746.y <= v747.y then
 				local v748 = v746.y / 19
 				local v749 = math.ceil(v748) + v_u_460.ScrollIndex
 				local v750
@@ -4781,8 +4776,7 @@ spawn(function()
 	local v_u_863 = false
 	local v_u_864 = {}
 	local function v_u_865()
-		if v_u_863 then
-		else
+		if not v_u_863 then
 			v_u_863 = true
 			wait()
 			pcall(function()
@@ -5978,8 +5972,7 @@ spawn(function()
 	function Set(_, p1224, p_u_1225)
 		local v_u_1226 = p1224.Name
 		local _ = p1224.ValueType
-		if p_u_1225 == nil then
-		else
+		if p_u_1225 ~= nil then
 			for _, v_u_1227 in pairs(v_u_995()) do
 				if CanEditProperty(v_u_1227, p1224) then
 					pcall(function()
@@ -6061,8 +6054,7 @@ spawn(function()
 	end
 	function showProperties(p1249)
 		ClearPropertiesList()
-		if p1249 == nil then
-		else
+		if p1249 ~= nil then
 			local v_u_1250 = {}
 			local v1251 = {}
 			numRows = 0
@@ -6460,8 +6452,7 @@ spawn(function()
 			else
 				v_u_1348.ScrollIndex = 0
 			end
-			if v_u_1348.UpdateCallback and v_u_1348.UpdateCallback(v_u_1348) == false then
-			else
+			if not v_u_1348.UpdateCallback or v_u_1348.UpdateCallback(v_u_1348) ~= false then
 				local v1359 = v_u_1348:CanScrollDown()
 				local v1360 = v_u_1348:CanScrollUp()
 				if v1359 ~= v_u_1352 then
@@ -7154,8 +7145,7 @@ spawn(function()
 			else
 				v_u_1517.ScrollIndex = 0
 			end
-			if v_u_1517.UpdateCallback and v_u_1517.UpdateCallback(v_u_1517) == false then
-			else
+			if not v_u_1517.UpdateCallback or v_u_1517.UpdateCallback(v_u_1517) ~= false then
 				local v1528 = v_u_1517:CanScrollDown()
 				local v1529 = v_u_1517:CanScrollUp()
 				if v1528 ~= v_u_1521 then
@@ -7693,8 +7683,7 @@ spawn(function()
 	v_u_1414.ChildAdded:connect(updateScriptBar)
 	v_u_1414.ChildRemoved:connect(updateScriptBar)
 	v_u_1415.MouseButton1Click:connect(function()
-		if v_u_1415.Active == false then
-		else
+		if v_u_1415.Active ~= false then
 			for _, v1645 in pairs(v_u_1414:GetChildren()) do
 				v1645.Position = v1645.Position + UDim2.new(0, 100, 0, 0)
 			end
@@ -7702,8 +7691,7 @@ spawn(function()
 		end
 	end)
 	v_u_1416.MouseButton1Click:connect(function()
-		if v_u_1416.Active == false then
-		else
+		if v_u_1416.Active ~= false then
 			for _, v1646 in pairs(v_u_1414:GetChildren()) do
 				v1646.Position = v1646.Position + UDim2.new(0, -100, 0, 0)
 			end
