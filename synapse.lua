@@ -1,4 +1,4 @@
--- Decompiled with the Synapse X Luau decompiler.
+-- Decompiled with the Synapse X Luau decompiler. - avg 8.25s
  --NOTE: Currently in beta! Not representative of final product.
 
 -- NOTE: Builtins are approximations and are not actually present in the original code.
